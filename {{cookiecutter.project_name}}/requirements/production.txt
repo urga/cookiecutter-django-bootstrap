@@ -1,0 +1,4 @@
+-r base.txt
+
+gunicorn==18.0
+git+git://github.com/kennethreitz/dj-static.git@e244f5178f

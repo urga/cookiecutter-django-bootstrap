@@ -1,9 +1,10 @@
 {
     "project_name": "project_name",
-    "repo_name":"repo_name",
+    "version": "0.0.0"
     "author_name": "Your Name",
+    "username": "admin",
     "email": "Your email",
     "description": "A short description of the project.",
     "year": "Current year",
-    "with_documentation": "yes"
+    "language_code": "nl-be"
 }

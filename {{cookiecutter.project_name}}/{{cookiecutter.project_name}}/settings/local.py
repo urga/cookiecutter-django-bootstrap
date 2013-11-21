@@ -10,7 +10,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '{{cookiecutter.repo_name}}',
+        'NAME': '{{cookiecutter.project_name}}',
         'USER': 'postgres',
         'PASSWORD': '',
         'HOST': 'localhost',
@@ -24,7 +24,7 @@ if len(sys.argv) > 1 and 'test' in sys.argv[1]:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': '/tmp/{{cookiecutter.repo_name}}_test.db',
+            'NAME': '/tmp/{{cookiecutter.project_name}}_test.db',
             'USER': '',
             'PASSWORD': '',
             'HOST': '',

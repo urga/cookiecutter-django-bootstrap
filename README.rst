@@ -1,5 +1,5 @@
-cookiecutter-simple-django
-==========================
+cookiecutter-django-bootstrap
+=============================
 
 A cookiecutter_ template for Django.
 
@@ -8,9 +8,16 @@ A cookiecutter_ template for Django.
 Description
 -----------
 
-Lighter version of the Daniel Greenfeld's cookiecutter-django.
+Work-in-progress template for a complete django-based website with these intentions:
 
-It uses the latest stable versions and it only defines a skeleton which can be extended as needed.
+    - as lightweight as possible
+    - looking at Django 1.6's startproject as a basis, but for now installs Django 1.5
+    - should be easily deployable to procfile based hosting providers
+    - tries to use as many environment variables as possible
+    - I love dj-static by Kenneth Reitz - serving static files without a cdn
+
+It uses a fixed set of versions as requirements, making sure that at least the dependancies that are listed, work well together
+
 
 Usage
 ------
@@ -20,76 +27,14 @@ and then editing the results to include your name, email, and various configurat
 
 First, get cookiecutter. Trust me, it's awesome::
 
-Set up your virtualenv::
-
-    $ cd <your-envs-folder>
-    $ virtualenv  --no-site-packages redditclone
-    $ cd redditclone
-    $ source bin/activate
     $ pip install cookiecutter
 
 Now run it against this repo::
 
     $ cd <your-workspace>
-    $ cookiecutter  https://github.com/marcofucci/cookiecutter-simple-django.git
+    $ cookiecutter  https://github.com/urga/cookiecutter-django-bootstrap.git
 
 You'll be prompted for some questions, answer them, then it will create a Django project for you.
-
-
-**Warning**: After this point, change 'Marco Fucci', etc to your own information.
-
-It prompts you for questions. Answer them::
-
-    Cloning into 'cookiecutter-django'...
-    remote: Counting objects: 443, done.
-    remote: Compressing objects: 100% (242/242), done.
-    remote: Total 443 (delta 196), reused 419 (delta 176)
-    Receiving objects: 100% (443/443), 119.91 KiB | 0 bytes/s, done.
-    Resolving deltas: 100% (196/196), done.
-    project_name (default is "project_name")? redditclone
-    repo_name (default is "repo_name")? redditclone
-    author_name (default is "Your Name")? Marco Fucci
-    email (default is "Your email")? <your-email>
-    description (default is "A short description of the project.")? A reddit clone
-    year (default is "Current year")? 2013
-    with_documentation (default is "yes")? yes
-
-If you are using cookiecutter < 0.7 and you answered *no* to *with_documentation*, you might want to delete the ``docs`` 
-folder. 
-From version 0.7+, that folder is automatically deleted for you.
-
-
-Create the database ``redditclone`` and then set up your project::
-
-    $ cd redditclone/
-    $ ls
-    $ pip install -r requirements/local.txt
-    $ python ./manage.py syncdb
-    $ python ./manage.py migrate
-    $ python ./manage.py runserver
-
-and load localhost:8000/admin
-
-
-Create a GitHub repo and push it there::
-
-    $ git init
-    $ git add .
-    $ git commit -m "first awesome commit!"
-    $ git remote add origin git@github.com:marcofucci/redditclone.git
-    $ git push -u origin master
-
-**Note**: The ``requirements`` files don't define any package versions because it makes
-more sense for you to use the latest ones when you set up your
-project. After that point though, you really want to take note of the specific
-versions installed so that they are not going to get updated without you knowing it.
-
-In order to do this, just activate your virtual environment, pip freeze it and
-update your requirements files::
-
-    $ activate <your-envs-folder>/redditclone/bin/activate
-    $ pip freeze
-    $ # now open requirements/* and note down the versions used.
 
 
 Structure

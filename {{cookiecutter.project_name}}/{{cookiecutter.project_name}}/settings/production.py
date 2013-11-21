@@ -14,7 +14,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '{{cookiecutter.repo_name}}',
+        'NAME': '{{cookiecutter.project_name}}',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',

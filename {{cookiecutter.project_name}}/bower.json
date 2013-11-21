@@ -1,0 +1,28 @@
+{
+  "name": "{{ cookiecutter.project_name}}",
+  
+  "version": "{{ cookiecutter.version }}",
+  
+  "homepage": "https://bitbucket.org/{{ cookiecutter.username }}/{{ cookiecutter.project_name }}",
+  
+  "authors": [
+    "{{ cookiecutter.author_name }} <{{ cookiecutter.email }}>"
+  ],
+  
+  "license": "MIT",
+  
+  "private": true,
+  
+  "dependencies": {
+    "jquery": "1.9",
+    "bootstrap": "3"
+  },
+  
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

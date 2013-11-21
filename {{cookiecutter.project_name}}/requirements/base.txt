@@ -2,11 +2,13 @@
 # After the first "pip install -r", just run "pip freeze" and add the version
 # to each package in each requirements/*.txt.
 
-django
+Django==1.5.5
+dj-database-url==0.2.2
+django-dotenv==1.2
 
-django-model-utils
+django-model-utils==1.5.0
 
-psycopg2
-South
+psycopg2==2.5.1
+South==0.8.3
 
-Pillow
+Pillow==2.2.1
