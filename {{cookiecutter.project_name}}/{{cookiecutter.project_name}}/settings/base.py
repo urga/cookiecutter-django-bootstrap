@@ -39,7 +39,9 @@ THIRD_PARTY_APPS = (
     'south',
 )
 
-LOCAL_APPS = ()
+LOCAL_APPS = (
+    '{{ cookiecutter.project_name }}',
+)
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APPLICATON DEFINITION

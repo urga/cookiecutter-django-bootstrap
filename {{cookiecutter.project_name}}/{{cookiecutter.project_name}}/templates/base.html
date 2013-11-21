@@ -1,43 +1,92 @@
-{% raw %}{% load staticfiles %}<!DOCTYPE html>
-<html lang="en" ng-app>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="{% block description %}{% endblock %}" />
-    <meta name="keywords" content="{% block keywords %}{% endblock %}" />
-    <meta name="viewport" content="{% block viewport %}width=device-width"{% endblock %}>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+{% raw %}{% load i18n %}<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="{{ LANGUAGE_CODE }}"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="{{ LANGUAGE_CODE }}"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="{{ LANGUAGE_CODE }}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{ LANGUAGE_CODE }}"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>{% block title %}{{cookiecutter.project_name}}{% endblock title %}</title>
+  <title>{{ cookiecutter.project_name }} | {% block title %}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}TODO: Put your meta description in here. It's going to be used as default for pages that don't have a description{% endblock %}">
+  <meta name="keywords" content="{% block meta_keywords %}TODO: Put your meta keywords in here. It's going to be used as default for pages that don't have a description{% endblock %}" />
+  <meta name="viewport" content="width=device-width">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL}}favicon.ico" />
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <link rel="stylesheet" href="{{ STATIC_URL }}style/css/theme-default.css" />
 
-    <link rel="icon" type="image/gif" href="{% static 'img/favicon.gif' %}">
+  
+  {% block extra_head %}{% endblock %}
 
-    {% block css %}
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+
+<body>
+<!--[if lt IE 7]>
+  <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+  
+{% block toolbar %}{% endblock toolbar %}
+<div id="page" class="{% block pageclass %}{% endblock %}">
+  {% include "includes/_site-nav.html" %}
+
+  <header id="main-header" class="container">
+    {% block main-header %}
+    <div class="hero-unit">
+      <h1>Hello, world!</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <p><a href="#" class="btn btn-primary btn-large">Learn more »</a></p>
+    </div>
     {% endblock %}
+  </header>
+  
+  <div id="main-content" class="container">
+    {% block main-content %}
+    <section>
+      <div class="col-md-4">
+        <h2>Heading</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn" href="#">View details »</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Heading</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn" href="#">View details »</a></p>
+     </div>
+      <div class="col-md-4">
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn" href="#">View details »</a></p>
+      </div>
+    </section>
+    {% endblock %}
+  </div>
 
-  </head>
-
-  <body>
-    <div class="container">
-
-      {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
-
-    </div> <!-- /container -->
 
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    {% block javascript %}
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-      <script src="{% static 'js/scripts.js' %}"></script>
-    {% endblock javascript %}
-  </body>
-</html>{% endraw %}
+<footer id="main-footer" class="container">
+  {% block footer %}
+  <hr />
+  <p>&copy; Company 2013</p><!-- TODO: Enter company name -->
+  {% endblock %}
+</footer>
+
+</div> <!-- /page -->
+
+
+<script src="{{ STATIC_URL }}bower_components/jquery/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+{% if not debug %}
+  <!-- TODO: Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src='//www.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+{% endif %}
+</body>
+</html>
+
+{% endraw %}

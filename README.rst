@@ -16,7 +16,9 @@ Work-in-progress template for a complete django-based website with these intenti
     - tries to use as many environment variables as possible
     - I love dj-static by Kenneth Reitz - serving static files without a cdn
 
-It uses a fixed set of versions as requirements, making sure that at least the dependancies that are listed, work well together
+It uses a fixed set of versions as requirements, making sure that at least the dependancies that are listed, work well together.
+
+Initial login for Django admin is whatever you set as username when cookiecutting (defaulting to "admin") and the password is "changeme".
 
 
 Usage
