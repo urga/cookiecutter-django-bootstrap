@@ -80,4 +80,6 @@ USE_TZ = True
 ########## END INTERNATIONALIZATION
 
 STATIC_URL = os.getenv("DJANGO_STATIC_URL", '/static/')
-
+MEDIA_URL = os.getenv("DJANGO_MEDIA_URL", '/media/')
+STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", 'public/static')
+MEDIA_ROOT = os.getenv("DJANGO_MEDIA_ROOT", 'public/media')

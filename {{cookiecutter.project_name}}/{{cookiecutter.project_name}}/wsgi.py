@@ -14,8 +14,9 @@ from django.core.wsgi import get_wsgi_application
 
 try:
 	from dj_static import Cling, MediaCling
-	application = Cling(MediaCling(get_wsgi_application()))
+	app = Cling(MediaCling(get_wsgi_application()))
 except ImportError:
-	application = get_wsgi_application()
+	app = get_wsgi_application()
 
+application = app
 

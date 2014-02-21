@@ -3,3 +3,5 @@
 *.pyc
 repo_name
 {{cookiecutter.project_name}}/settings/local.py
+*.sublime-*
+.idea/
