@@ -1,6 +1,5 @@
 {
-  "name": "{{ cookiecutter.project_name }}",
-  "version": "{{ cookiecutter.version }}",
+  "name": "{{ cookiecutter.repo_name }}",
   "devDependencies": {
     "grunt": "0.4.1",
     "grunt-contrib-less": "0.8.2",

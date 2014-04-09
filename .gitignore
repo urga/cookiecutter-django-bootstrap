@@ -2,6 +2,6 @@
 *.pot
 *.pyc
 repo_name
-{{cookiecutter.project_name}}/settings/local.py
+{{cookiecutter.repo_name}}/settings/local.py
 *.sublime-*
 .idea/
