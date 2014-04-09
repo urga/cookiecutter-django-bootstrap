@@ -1,8 +1,6 @@
 {
   "name": "{{ cookiecutter.repo_name}}",
   
-  "version": "{{ cookiecutter.version }}",
-  
   "homepage": "https://bitbucket.org/{{ cookiecutter.username }}/{{ cookiecutter.repo_name }}",
   
   "authors": [
