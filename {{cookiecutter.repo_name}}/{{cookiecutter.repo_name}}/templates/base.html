@@ -1,4 +1,4 @@
-{% raw %}{% load i18n %}<!DOCTYPE html>{% endraw %}
+{% raw %}{% load i18n %}<!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="{{ LANGUAGE_CODE }}"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="{{ LANGUAGE_CODE }}"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="{{ LANGUAGE_CODE }}"> <![endif]-->
@@ -7,8 +7,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>{{ cookiecutter.repo_name }} | {% raw %}{% block title %}{% endblock %}</title>
-  <meta name="description" content="{% block meta_description %}TODO: Put your meta description in here. It's going to be used as default for pages that don't have a description{% endblock %}">
+  <title>{% endraw %}{{ cookiecutter.repo_name }}{% raw %} | {% block title %}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{% endraw %}{{ cookiecutter.description }}{% raw %}{% endblock %}">
   <meta name="keywords" content="{% block meta_keywords %}TODO: Put your meta keywords in here. It's going to be used as default for pages that don't have a description{% endblock %}" />
   <meta name="viewport" content="width=device-width">
   
@@ -67,7 +67,7 @@
 <footer id="main-footer" class="container">
   {% block footer %}
   <hr />
-  <p>&copy; Company 2013</p><!-- TODO: Enter company name -->
+  <p>&copy; {% endraw %}{{ cookiecutter.author_name }} {{ cookiecutter.year }}{% raw %}</p><!-- TODO: Enter company name -->
   {% endblock %}
 </footer>
 

@@ -5,10 +5,12 @@
 Django==1.6.2
 dj-database-url==0.3.0
 django-dotenv==1.2
-django-sekizai==0.7
+# django-sekizai==0.7
 django-model-utils==2.0.3
+django-debug-toolbar==1.0.1
 
 psycopg2==2.5.1
 South==0.8.4
 
-Pillow==2.3.0
+# Pillow==2.3.0
+git+git://github.com/kennethreitz/dj-static.git@e79582483a

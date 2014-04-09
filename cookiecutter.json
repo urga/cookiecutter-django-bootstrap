@@ -1,9 +1,10 @@
 {
-    "repo_name": "repo_name",
-    "version": "0.1.0",
-    "author_name": "Your Name",
-    "username": "admin",
-    "email": "Your email",
+    "repo_name": "sampleproject",
+    "url": "http://www.example.com",
+    "version": "0.1-alpha",
+    "author_name": "The author's full name",
+    "username": "developer",
+    "email": "developer@webagency.com",
     "description": "A short description of the project.",
     "year": "Current year",
     "language_code": "nl-be"

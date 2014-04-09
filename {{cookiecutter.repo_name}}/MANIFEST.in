@@ -1,0 +1,4 @@
+include versioneer.py
+include {{ cookiecutter.repo_name }}/_version.py
+include requirements.txt
+graft requirements
