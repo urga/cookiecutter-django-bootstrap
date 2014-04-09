@@ -8,13 +8,13 @@ module.exports = function(grunt) {
         files: {
           "{{ cookiecutter.project_name }}/static/style/css/theme-default.css": "{{ cookiecutter.project_name }}/static/style/less/theme-default.less"
         }
-      },
+      }
     },
     watch: {
       files: ['{{ cookiecutter.project_name }}/static/style/less/**/*.less'],
       tasks: ['less'],
       options: {
-        livereload: true,
+        livereload: true
       }
     }
   });
