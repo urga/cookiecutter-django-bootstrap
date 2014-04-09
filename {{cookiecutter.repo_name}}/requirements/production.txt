@@ -1,4 +1,4 @@
 -r base.txt
 
 gunicorn==18.0
-git+git://github.com/kennethreitz/dj-static.git@e244f5178f
+git+git://github.com/kennethreitz/dj-static.git@e79582483a

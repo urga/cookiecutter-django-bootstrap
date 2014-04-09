@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", False)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.getenv("DJANGO_DEBUG", "0")) # TODO: make this work when DJANGO_DEBUG is set to Fale or True as well
+DEBUG = int(os.getenv("DJANGO_DEBUG", "0"))  # TODO: make this work when DJANGO_DEBUG is set to False or True as well
 TEMPLATE_DEBUG = DEBUG
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
