@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-def test_process():
-    print('test')
+from subprocess import call
+call(["manage.py", "syncdb"])
