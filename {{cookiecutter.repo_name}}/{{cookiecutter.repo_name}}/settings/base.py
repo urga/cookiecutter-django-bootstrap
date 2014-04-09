@@ -1,5 +1,5 @@
 """
-Base django settings for {{cookiecutter.project_name}} project.
+Base django settings for {{cookiecutter.repo_name}} project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -40,17 +40,17 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
-    '{{ cookiecutter.project_name }}',
+    '{{ cookiecutter.repo_name }}',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APPLICATON DEFINITION
 
 
-ROOT_URLCONF = '{{ cookiecutter.project_name }}.urls'
+ROOT_URLCONF = '{{ cookiecutter.repo_name }}.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = '{{cookiecutter.project_name}}.wsgi.application'
+WSGI_APPLICATION = '{{cookiecutter.repo_name}}.wsgi.application'
 
 # A tuple that lists people who get code error notifications when DEBUG=False
 ADMINS = (
