@@ -1,7 +1,6 @@
 *.log
 *.pot
 *.pyc
-repo_name
 {{cookiecutter.repo_name}}/settings/local.py
 *.sublime-*
 .idea/
