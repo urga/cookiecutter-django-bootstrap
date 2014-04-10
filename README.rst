@@ -3,8 +3,6 @@ cookiecutter-django-bootstrap
 
 A cookiecutter_ template for Django.
 
-.. _cookiecutter: https://github.com/audreyr/cookiecutter
-
 Description
 -----------
 
@@ -93,12 +91,12 @@ Now, it's time to start writing some code!!!
 
 
 Not Exactly What You Want?
----------------------------
+--------------------------
 
 This is what I want. *It might not be what you want.* Don't worry, you have options:
 
 Fork This
-~~~~~~~~~~
+~~~~~~~~~
 
 If you have differences in your preferred setup, I encourage you to fork this to create your own version.
 Once you have your fork working, let me know and I'll add it to a '*Similar Cookiecutter Templates*' list here.
@@ -113,7 +111,7 @@ If you do rename your fork, I encourage you to submit it to the following places
 .. _grid: https://www.djangopackages.com/grids/g/cookiecutter/
 
 Or Submit a Pull Request
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 I also accept pull requests on this, if they're small, atomic, and if they make my own project development
 experience better.
