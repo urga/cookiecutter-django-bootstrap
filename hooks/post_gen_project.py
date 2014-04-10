@@ -3,6 +3,11 @@
 
 from subprocess import call
 call(["pip", "install", "-r", "requirements/local.txt"])
-# call(["createuser", "{{ cookiecutter.repo_name }}"])
-call (["git", "init"])
-# call(["manage.py", "syncdb"])
+call(["fab", "create_db_localhost"])
+call(["./manage.py", "syncdb", "--noinput"])
+call(["npm", "install"])
+call(["bower", "install"])
+call(["grunt"])
+call(["git", "init"])
+call(["git", "add", "-A"])
+call(["git", "commit", "-m", "'Initial commit'"])
