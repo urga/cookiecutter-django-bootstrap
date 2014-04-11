@@ -447,7 +447,6 @@ def get_versions(default={"version": "unknown", "full": ""}, verbose=False):
 
 
 import subprocess
-import sys
 import errno
 
 
@@ -483,9 +482,9 @@ def run_command(commands, args, cwd=None, verbose=False, hide_stderr=False):
     return stdout
 
 
-import sys
 import re
 import os.path
+
 
 def get_expanded_variables(versionfile_abs):
     # the code embedded in _version.py can just fetch the value of these
@@ -508,6 +507,7 @@ def get_expanded_variables(versionfile_abs):
     except EnvironmentError:
         pass
     return variables
+
 
 def versions_from_expanded_variables(variables, tag_prefix, verbose=False):
     refnames = variables["refnames"].strip()
@@ -546,6 +546,7 @@ def versions_from_expanded_variables(variables, tag_prefix, verbose=False):
         print("no suitable tags, using full revision id")
     return { "version": variables["full"].strip(),
              "full": variables["full"].strip() }
+
 
 def versions_from_vcs(tag_prefix, root, verbose=False):
     # this runs 'git' from the root of the source tree. This only gets called
@@ -592,6 +593,7 @@ def versions_from_parentdir(parentdir_prefix, root, verbose=False):
 import os.path
 import sys
 
+
 # os.path.relpath only appeared in Python-2.6 . Define it here for 2.5.
 def os_path_relpath(path, start=os.path.curdir):
     """Return a relative version of a path"""
@@ -609,6 +611,7 @@ def os_path_relpath(path, start=os.path.curdir):
     if not rel_list:
         return os.path.curdir
     return os.path.join(*rel_list)
+
 
 def do_vcs_install(manifest_in, versionfile_source, ipy):
     GITS = ["git"]
@@ -655,6 +658,7 @@ def get_versions(default={}, verbose=False):
 
 DEFAULT = {"version": "unknown", "full": "unknown"}
 
+
 def versions_from_file(filename):
     versions = {}
     try:
@@ -671,17 +675,20 @@ def versions_from_file(filename):
     f.close()
     return versions
 
+
 def write_to_version_file(filename, versions):
     f = open(filename, "w")
     f.write(SHORT_VERSION_PY % versions)
     f.close()
     print("set %s to '%s'" % (filename, versions["version"]))
 
+
 def get_root():
     try:
         return os.path.dirname(os.path.abspath(__file__))
     except NameError:
         return os.path.dirname(os.path.abspath(sys.argv[0]))
+
 
 def get_versions(default=DEFAULT, verbose=False):
     # returns dict with two keys: 'version' and 'full'
@@ -727,17 +734,22 @@ def get_versions(default=DEFAULT, verbose=False):
     if verbose: print("got version from default %s" % ver)
     return default
 
+
 def get_version(verbose=False):
     return get_versions(verbose=verbose)["version"]
+
 
 class cmd_version(Command):
     description = "report generated version string"
     user_options = []
     boolean_options = []
+
     def initialize_options(self):
         pass
+
     def finalize_options(self):
         pass
+
     def run(self):
         ver = get_version(verbose=True)
         print("Version is currently: %s" % ver)
@@ -778,6 +790,7 @@ if 'cx_Freeze' in sys.modules:  # cx_freeze enabled?
                                        })
             f.close()
 
+
 class cmd_sdist(_sdist):
     def run(self):
         versions = get_versions(verbose=True)
@@ -803,14 +816,18 @@ __version__ = get_versions()['version']
 del get_versions
 """
 
+
 class cmd_update_files(Command):
     description = "install/upgrade Versioneer files: __init__.py SRC/_version.py"
     user_options = []
     boolean_options = []
+
     def initialize_options(self):
         pass
+
     def finalize_options(self):
         pass
+
     def run(self):
         print(" creating %s" % versionfile_source)
         f = open(versionfile_source, "w")
@@ -871,6 +888,7 @@ class cmd_update_files(Command):
         # .gitattributes to mark _version.py for export-time keyword
         # substitution.
         do_vcs_install(manifest_in, versionfile_source, ipy)
+
 
 def get_cmdclass():
     cmds = {'version': cmd_version,

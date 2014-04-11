@@ -6,11 +6,11 @@ from setuptools.command.install import install as _install
 
 versioneer.versionfile_source = '{{ cookiecutter.repo_name }}/_version.py'
 versioneer.versionfile_build = '{{ cookiecutter.repo_name }}/_version.py'
-versioneer.tag_prefix = 'v' # tags are like 1.2.0
-versioneer.parentdir_prefix = '{{ cookiecutter.repo_name }}-' # dirname like 'myproject-1.2.0'
+versioneer.tag_prefix = 'v'  # tags are like 1.2.0
+versioneer.parentdir_prefix = '{{ cookiecutter.repo_name }}-'  # dirname like 'myproject-1.2.0'
 
 
-class install(_install):
+class Install(_install):
     """
     This executes the original install method but adds install requirements that are defined in requirements.txt
     """
@@ -20,7 +20,7 @@ class install(_install):
 
 
 cmdclass = versioneer.get_cmdclass()
-cmdclass.update({'install': install})
+cmdclass.update({'install': Install})
 
 
 setup(
