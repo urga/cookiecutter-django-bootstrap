@@ -1,11 +1,12 @@
 {
     "repo_name": "sampleproject",
+    "project_title": "sampleproject",
+    "description": "A short description of the project.",
     "url": "http://www.example.com",
     "version": "0.1-alpha",
     "author_name": "The author's full name",
-    "username": "developer",
+    "username": "admin",
     "email": "developer@webagency.com",
-    "description": "A short description of the project.",
     "year": "Current year",
     "language_code": "nl-be"
 }

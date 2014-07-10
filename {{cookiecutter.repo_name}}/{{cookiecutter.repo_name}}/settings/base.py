@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", False)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.getenv("DJANGO_DEBUG", "0"))  # TODO: make this work when DJANGO_DEBUG is set to False or True as well
+DEBUG = os.getenv("DJANGO_DEBUG", False) in ["True", "1", "yes", "true", "TRUE", "on", "ON", "On"]
 TEMPLATE_DEBUG = DEBUG
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -38,13 +38,15 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'south',
     'debug_toolbar',
+    'django_extensions',
+    # 'crispy_forms',
 )
 
 LOCAL_APPS = (
     '{{ cookiecutter.repo_name }}',
 )
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS
 ########## END APPLICATON DEFINITION
 
 
@@ -84,3 +86,6 @@ STATIC_URL = os.getenv("DJANGO_STATIC_URL", '/static/')
 MEDIA_URL = os.getenv("DJANGO_MEDIA_URL", '/media/')
 STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", 'public/static')
 MEDIA_ROOT = os.getenv("DJANGO_MEDIA_ROOT", 'public/media')
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
