@@ -1,16 +1,11 @@
 #!/usr/bin/env python
 import subprocess
-import versioneer
+import version
 from setuptools import setup, find_packages
 from setuptools.command.install import install as _install
 
-versioneer.versionfile_source = '{{ cookiecutter.repo_name }}/_version.py'
-versioneer.versionfile_build = '{{ cookiecutter.repo_name }}/_version.py'
-versioneer.tag_prefix = 'v'  # tags are like 1.2.0
-versioneer.parentdir_prefix = '{{ cookiecutter.repo_name }}-'  # dirname like 'myproject-1.2.0'
 
-
-class Install(_install):
+class install(_install):
     """
     This executes the original install method but adds install requirements that are defined in requirements.txt
     """
@@ -19,16 +14,12 @@ class Install(_install):
         subprocess.call(['pip', 'install', '-r', 'requirements.txt'])
 
 
-cmdclass = versioneer.get_cmdclass()
-cmdclass.update({'install': Install})
-
-
 setup(
     name='littleball',
     url="{{ cookiecutter.url }}",
-    version=versioneer.get_version(),
+    version=version.getVersion(),
     description="{{ cookiecutter.description }}",
-    cmdclass=cmdclass,
+    cmdclass={'install': install},
     author="{{ cookiecutter.author_name }}",
     author_email="{{ cookiecutter.email }}",
     packages=find_packages(),

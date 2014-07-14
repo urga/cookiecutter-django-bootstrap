@@ -1,4 +1,4 @@
-{% raw %}{% load i18n %}<!DOCTYPE html>
+{% raw %}{% load i18n staticfiles %}<!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="{{ LANGUAGE_CODE }}"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="{{ LANGUAGE_CODE }}"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="{{ LANGUAGE_CODE }}"> <![endif]-->
@@ -7,30 +7,46 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>{% endraw %}{{ cookiecutter.repo_name }}{% raw %} | {% block title %}{% endblock %}</title>
+  <title>{% endraw %}{{ cookiecutter.project_title }}{% raw %}{% block title %}{% endblock %}</title>
   <meta name="description" content="{% block meta_description %}{% endraw %}{{ cookiecutter.description }}{% raw %}{% endblock %}">
-  <meta name="keywords" content="{% block meta_keywords %}TODO: Put your meta keywords in here. It's going to be used as default for pages that don't have a description{% endblock %}" />
+  <meta name="keywords" content="{% block meta_keywords %}TODO: Put your meta keywords in here. It's going to be used as default for pages that don't have a description.{% endblock %}" />
   <meta name="viewport" content="width=device-width">
+  <meta property="og:locale" content="{{ LANGUAGE_CODE }}" />
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
+  <meta property="og:title" content="{% block og_title %}{% endraw %}{{ cookiecutter.project_title }}{% raw %}{% endblock %}" />
+  <meta property="og:description" content="{% block og_description %}{% endraw %}{{ cookiecutter.description }}{% raw %}{% endblock %}" />
+  <meta property="og:url" content="{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}" />
+  <meta property="og:site_name" content="{% endraw %}{{ cookiecutter.project_title }}{% raw %}" />
+  <meta property="article:publisher" content="{% endraw %}{{ cookiecutter.url }}{% raw %}" />
+  <meta property="og:image" content="{% block og_image %}{% endraw %}{{ cookiecutter.url }}{% raw %}{% static "img/logo.png" %}{% endblock %}" />
   
-  <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL}}favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
 
-  <link rel="stylesheet" href="{{ STATIC_URL }}style/css/theme-default.css" />
+  <link rel="stylesheet" href="{% static 'style/css/theme-default.css' %}" />
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script>window.html5 || document.write('<script src="{% static 'bower_components/html5shiv/html5shiv.js'"><\/script>')</script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <script>window.respond || document.write('<script src="{% static 'bower_components/respond/respond.js'"><\/script>)</script>
+  <![endif]-->
 
   
   {% block extra_head %}{% endblock %}
 
 </head>
 
-<body>
-<!--[if lt IE 7]>
+<body class="{% block pageclass %}{% endblock %}">
+<!--[if lt IE 8]>
   <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
   
 {% block toolbar %}{% endblock toolbar %}
-<div id="page" class="{% block pageclass %}{% endblock %}">
+<div class="wrapper">
   {% include "includes/_site-nav.html" %}
 
-  <header id="main-header" class="container">
+  <header role="banner">
     {% block main-header %}
     <div class="hero-unit">
       <h1>Hello, world!</h1>
@@ -40,7 +56,7 @@
     {% endblock %}
   </header>
   
-  <div id="main-content" class="container">
+  <main role="main">
     {% block main-content %}
     <section>
       <div class="col-md-4">
@@ -60,22 +76,22 @@
       </div>
     </section>
     {% endblock %}
-  </div>
+  </main>
 
 
 
-<footer id="main-footer" class="container">
+<footer role="contentinfo">
   {% block footer %}
   <hr />
   <p>&copy; {% endraw %}{{ cookiecutter.author_name }} {{ cookiecutter.year }}{% raw %}</p><!-- TODO: Enter company name -->
   {% endblock %}
 </footer>
 
-</div> <!-- /page -->
+</div> <!-- /wrapper -->
 
-
-<script src="{{ STATIC_URL }}bower_components/jquery/jquery.min.js"></script>
-<script src="{{ STATIC_URL }}bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://oss.maxcdn.com/jquery/1.11.1/jquery.js"></script>
+<script>window.jQuery || document.write('<script src="{% static 'bower_components/jquery/jquery.min.js' %}'"><\/script>')</script>
+<script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
 
 {% if not debug %}
   <!-- TODO: Google Analytics: change UA-XXXXX-X to be your site's ID. -->

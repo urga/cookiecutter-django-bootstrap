@@ -1,3 +1,6 @@
--r base.txt
+-r production.txt
+Fabric==1.9.0
 
-Fabric==1.8.3
+# TESTING:
+# mock==1.0.1
+# model-mommy==1.2

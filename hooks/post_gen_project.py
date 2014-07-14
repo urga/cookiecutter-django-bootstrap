@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from subprocess import call
-call(["mv", "dotignore", ".gitignore"])
+call(["mv", "dotgitignore", ".gitignore"])
 call(["pip", "install", "-r", "requirements/local.txt"])
 call(["fab", "create_db_localhost"])
 call(["./manage.py", "syncdb", "--noinput"])
