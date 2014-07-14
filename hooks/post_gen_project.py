@@ -4,7 +4,7 @@
 from subprocess import call
 call(["mv", "dotgitignore", ".gitignore"])
 call(["pip", "install", "-r", "requirements/local.txt"])
-call(["fab", "create_db_localhost"])
+call(["fab", "create_db"])
 call(["./manage.py", "syncdb", "--noinput"])
 call(["npm", "install"])
 call(["bower", "install"])
