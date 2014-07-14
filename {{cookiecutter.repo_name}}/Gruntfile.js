@@ -6,13 +6,32 @@ module.exports = function(grunt) {
     less: {
       development: {
         files: {
-          "{{ cookiecutter.repo_name }}/static/style/css/theme-default.css": "{{ cookiecutter.repo_name }}/static/style/less/theme-default.less"
+          "{{ cookiecutter.repo_name }}/static/style/css/theme-default.css": "{{ cookiecutter.repo_name }}/static/style/less/main.less"
         }
       }
     },
     watch: {
       files: ['{{ cookiecutter.repo_name }}/static/style/less/**/*.less'],
       tasks: ['less'],
+      options: {
+        livereload: true
+      }
+    },
+    cssmin: {
+        minify: {
+            files: {
+                "wieze/static/style/css/theme-default.min.css": "wieze/static/style/css/theme-default.css"
+            }
+        }
+    },
+    img: {
+        optimize: {
+            src: 'wieze/static/img'
+        }
+    },
+    watch: {
+      files: ['wieze/static/style/less/*.less'],
+      tasks: ['less', 'cssmin'],
       options: {
         livereload: true
       }
