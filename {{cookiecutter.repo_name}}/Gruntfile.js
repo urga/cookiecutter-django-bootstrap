@@ -20,17 +20,17 @@ module.exports = function(grunt) {
     cssmin: {
         minify: {
             files: {
-                "wieze/static/style/css/theme-default.min.css": "wieze/static/style/css/theme-default.css"
+                "{{ cookiecutter.repo_name }}/static/style/css/theme-default.min.css": "{{ cookiecutter.repo_name }}/static/style/css/theme-default.css"
             }
         }
     },
     img: {
         optimize: {
-            src: 'wieze/static/img'
+            src: '{{ cookiecutter.repo_name }}/static/img'
         }
     },
     watch: {
-      files: ['wieze/static/style/less/*.less'],
+      files: ['{{ cookiecutter.repo_name }}/static/style/less/*.less'],
       tasks: ['less', 'cssmin'],
       options: {
         livereload: true
@@ -40,6 +40,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-img');
 
   grunt.registerTask('default', ['less']);
 

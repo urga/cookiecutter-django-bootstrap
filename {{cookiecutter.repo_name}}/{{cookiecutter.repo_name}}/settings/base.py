@@ -87,5 +87,13 @@ MEDIA_URL = os.getenv("DJANGO_MEDIA_URL", '/media/')
 STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", 'public/static')
 MEDIA_ROOT = os.getenv("DJANGO_MEDIA_ROOT", 'public/media')
 
+# E-mail:
+SERVER_EMAIL = 'webserver <webserver@myhost.com>'
+EMAIL_HOST = os.getenv("DJANGO_EMAIL_HOST", "localhost")
+EMAIL_PORT = os.getenv("DJANGO_EMAIL_PORT", 587)
+EMAIL_HOST_USER = os.getenv("DJANGO_EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.getenv("DJANGO_EMAIL_HOST_PASSWORD", "")
+DEFAULT_FROM_EMAIL = "Website <info@website.com>"
+
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
