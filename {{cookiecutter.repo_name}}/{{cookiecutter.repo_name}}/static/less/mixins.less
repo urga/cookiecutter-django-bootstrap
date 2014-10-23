@@ -1,0 +1,14 @@
+// Custom mixins:
+
+.make-gallery(@xs-cols: 6; @md-cols: 4; @lg-cols: 3;) {
+  .make-row();
+    &>figure {
+      .make-xs-column(@xs-cols);
+      .make-md-column(@md-cols);
+      .make-lg-column(@lg-cols);
+      img {
+        .img-responsive();
+      }
+    }
+}
+

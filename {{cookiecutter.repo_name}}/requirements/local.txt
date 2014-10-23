@@ -1,5 +1,5 @@
 -r production.txt
-Fabric==1.9.0
+Fabric==1.10.0
 
 # TESTING:
 # mock==1.0.1

@@ -1,26 +1,19 @@
 module.exports = function(grunt) {
 
-  grunt.initConfig({
+grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
     less: {
-      development: {
-        files: {
-          "{{ cookiecutter.repo_name }}/static/style/css/theme-default.css": "{{ cookiecutter.repo_name }}/static/style/less/main.less"
+        development: {
+            files: {
+                "{{ cookiecutter.repo_name }}/static/css/theme-default.css": "{{ cookiecutter.repo_name }}/static/less/theme-default.less"
+            }
         }
-      }
-    },
-    watch: {
-      files: ['{{ cookiecutter.repo_name }}/static/style/less/**/*.less'],
-      tasks: ['less'],
-      options: {
-        livereload: true
-      }
     },
     cssmin: {
         minify: {
             files: {
-                "{{ cookiecutter.repo_name }}/static/style/css/theme-default.min.css": "{{ cookiecutter.repo_name }}/static/style/css/theme-default.css"
+                "{{ cookiecutter.repo_name }}/static/css/theme-default.min.css": "{{ cookiecutter.repo_name }}/static/css/theme-default.css"
             }
         }
     },
@@ -30,19 +23,25 @@ module.exports = function(grunt) {
         }
     },
     watch: {
-      files: ['{{ cookiecutter.repo_name }}/static/style/less/*.less'],
-      tasks: ['less', 'cssmin'],
-      options: {
-        livereload: true
-      }
+        less: {
+            files: ['{{ cookiecutter.repo_name }}/static/less/**/*.less'],
+            tasks: ['less', 'cssmin'],
+            options: {
+                livereload: true
+            }
+        },
+        img: {
+            files: ['{{ cookiecutter.repo_name }}/static/img/**/*'],
+            tasks: ['img']
+        }
     }
-  });
+ });
 
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-img');
 
-  grunt.registerTask('default', ['less']);
+  grunt.registerTask('default', ['less', 'cssmin']);
 
 };
