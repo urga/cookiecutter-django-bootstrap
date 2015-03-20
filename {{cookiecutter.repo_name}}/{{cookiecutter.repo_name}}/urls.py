@@ -11,5 +11,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', TemplateView.as_view(template_name="home.html")),
+    url(r'^theme/$', TemplateView.as_view(template_name="theme-default.html"), name="theme"),
+    url(r'^typography/$', TemplateView.as_view(template_name="theme-typography.html"), name="typography"),
 
 )
