@@ -1,5 +1,5 @@
 -r production.txt
-Fabric==1.10.0  # Fabric doesn't work with Python 3 at the moment, so rely on the system-wide Fabric.
+Fabric==1.10.0  # Fabric needs to be installed in the local enviroment.
 
 # TESTING:
 # mock==1.0.1
