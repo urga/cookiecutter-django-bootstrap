@@ -32,7 +32,7 @@ You can switch virtualenvironments simply by typing ``workon [myenv]``. You get 
 
     pip install -r requirements/local.txt
 
-5. Install Grunt
+4. Install Grunt
 ----------------
 Grunt is used for preprocessing the less files and minifies them so they are nice and tidy. It's a node package, so you need to have npm installed on your system already. Then, from the project root directory run:
 
@@ -42,7 +42,7 @@ Grunt is used for preprocessing the less files and minifies them so they are nic
 
 This will install ``grunt`` and its dependancies. If you want to add grunt packages, don't forget to specify them in the package.json file.
 
-6. Start the watcher for generating css on the fly
+5. Start the watcher for generating css on the fly
 --------------------------------------------------
 
 ::
@@ -51,7 +51,7 @@ This will install ``grunt`` and its dependancies. If you want to add grunt packa
 
 Use another terminal window for this. If you do that, don't forget to switch to the right environment: ``workon {{ cookiecutter.repo_name }}``.
 
-7. Configure your environment
+6. Configure your environment
 -----------------------------
 Django needs a secret key to run. That key is not stored in the repo for security reasons, so you should generate it for every installation and save it to the environment that is read in when using Django management command.
 The default is not to run in DEBUG mode, unless the environment specifies it.
@@ -65,13 +65,15 @@ Because we also want to make use of Django's protection mechanism, whe also have
     echo DJANGO_ALLOWED_HOSTS=127.0.0.1>>.env
 
 
-8. Sync the database
+7. Sync the database
 --------------------
+Create the database if it doesn't exist and sync it.
 ::
 
+    createdb {{ cookiecutter.repo_name }}
     ./manage.py syncdb && ./manage.py migrate
 
-9. Run the project
+8. Run the project
 ------------------
 ::
 
@@ -79,7 +81,7 @@ Because we also want to make use of Django's protection mechanism, whe also have
 
 
 Load/dump data from the database
----------------------------------
+--------------------------------
 
 export:
 ::
