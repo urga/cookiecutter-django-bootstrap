@@ -34,20 +34,20 @@ You can switch virtualenvironments simply by typing ``workon [myenv]``. You get 
 
 4. Install Grunt
 ----------------
-Grunt is used for preprocessing the less files and minifies them so they are nice and tidy. It's a node package, so you need to have npm installed on your system already. Then, from the project root directory run:
+Gulp is used for preprocessing the less files and minifies them so they are nice and tidy. It's a node package, so you need to have npm installed on your system already. Then, from the project root directory run:
 
 ::
 
     npm install
 
-This will install ``grunt`` and its dependancies. If you want to add grunt packages, don't forget to specify them in the package.json file.
+This will install ``gulp`` and its dependancies. If you want to add gulp packages, don't forget to specify them in the package.json file.
 
 5. Start the watcher for generating css on the fly
 --------------------------------------------------
 
 ::
 
-    grunt watch
+    gulp watch
 
 Use another terminal window for this. If you do that, don't forget to switch to the right environment: ``workon {{ cookiecutter.repo_name }}``.
 
@@ -101,15 +101,15 @@ This project uses dotenv, a python package that reads in the ``.env`` file in th
 Adding a front-end package
 --------------------------
 
-Bower is a simple package manager for front-end stuff, e.g.: if you want to use bootstrap simply run ``bower install bootstrap``. You can specify specific versions and also dependancies. Beware, bower needs to be installed at system level, not project level. So if you haven't got it yet, run:
+This project uses django-bower, a thin wrapper around Bower that lets you specify front-end packages in Django settings. Bower is a simple package manager for front-end stuff, e.g.: if you want to use bootstrap simply run ``bower install bootstrap``. You can specify specific versions and also dependancies. Beware, bower needs to be installed at system level, not project level. So if you haven't got it yet, run:
 ::
 
     npm install -g bower
 
-Once that is done, you can install new packages and store the version of the selected package in the bower.json file automatically, like so:
+Once that is done, you can install new packages like so:
 
 ::
 
-    bower install -S bootstrap
+    ./manage.py install bootstrap
 
 Check out the bower website: http://bower.io/

@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import subprocess
-import version
 from setuptools import setup, find_packages
 from setuptools.command.install import install as _install
 
@@ -15,9 +14,9 @@ class install(_install):
 
 
 setup(
-    name='littleball',
+    name='{{ cookiecutter.repo_name }}',
     url="{{ cookiecutter.url }}",
-    version=version.getVersion(),
+    version="{{ cookiecutter.version }}",
     description="{{ cookiecutter.description }}",
     cmdclass={'install': install},
     author="{{ cookiecutter.author_name }}",
@@ -25,5 +24,5 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    scripts = ['manage.py'],
+    scripts=['manage.py'],
 )

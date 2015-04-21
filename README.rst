@@ -9,20 +9,17 @@ Description
 Work-in-progress template for a complete django-based website with these intentions:
 
     - as lightweight as possible
-    - looking at Django_ 1.6's startproject as a basis
-    - uses Bower_ as front-end package manager
+    - looking at Django_ 1.7's startproject as a basis
+    - uses Bower_ as front-end package manager (and django-bower)
     - installs jquery_ and bootstrap_
-    - uses Grunt_ as task runner to automate less compilation
-    - automatically sets up a PostgreSQL_ database
-    - initializes a git repo
+    - uses Gulp_ as task runner to automate less compilation
     - should be easily deployable to procfile based hosting providers
     - tries to use as many environment variables as possible
     - I love dj-static_ by Kenneth Reitz - serving static files without a cdn
 
-.. _Grunt: http://gruntjs.com/
+.. _Gulp: http://gruntjs.com/
 .. _Django: https://www.djangoproject.com/
 .. _dj-static: https://github.com/kennethreitz/dj-static
-.. _PostgreSQL: http://www.postgresql.org/
 .. _Bower: http://bower.io/
 .. _jquery: http://jquery.com/
 .. _bootstrap: http://getbootstrap.com/
@@ -43,9 +40,9 @@ First, get cookiecutter. Trust me, it's awesome::
 
 Now run it against this repo, after creating a virtualenv::
 
-    $ cd <your-workspace>
     $ mkvirtualenv <project-name>
     $ cookiecutter  https://github.com/urga/cookiecutter-django-bootstrap.git
+    $ setvirtualenvproject  # This makes it easy to navigate to your project with 'cdproject'.
 
 You'll be prompted for some questions, answer them, then it will create a Django project for you.
 
@@ -71,17 +68,9 @@ in the same folder. There you can override the local values.
 The ``testing.py`` module is loaded automatically after ``base.py`` and ``local.py`` every time you
 run ``./manage.py test``.
 
-**Apps**
+**Django apps**
 
-The ``apps`` folder should contain all your local django apps, this is to keep
-the structure of the project clean.
-
-When it's time to ``./manage.py startapp <name>``, just move the generated
-module to ``apps``. If you want to know why this works, just take a look at the line::
-
-    sys.path.insert(0, root('apps'))
-
-in ``settings/base.py``.
+Install your Django apps in the root of the project folder. This makes them easily transferable when the need arises.
 
 
 Done!

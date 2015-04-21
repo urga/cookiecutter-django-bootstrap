@@ -3,10 +3,10 @@
     "project_title": "sampleproject",
     "description": "A short description of the project.",
     "url": "http://www.example.com",
-    "version": "0.1-alpha",
+    "version": "0.1",
     "author_name": "The author's full name",
     "username": "admin",
     "email": "developer@webagency.com",
     "year": "Current year",
-    "language_code": "nl-be"
+    "language_code": "nl"
 }

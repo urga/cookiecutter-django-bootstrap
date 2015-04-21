@@ -24,34 +24,11 @@ TEMPLATE_DEBUG = DEBUG
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 
-########## APPLICATON DEFINITION
-DJANGO_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-)
-THIRD_PARTY_APPS = (
-    'south',
-    'debug_toolbar',
-    'django_extensions',
-    # 'crispy_forms',
-)
-
-LOCAL_APPS = (
-    '{{ cookiecutter.repo_name }}',
-)
-
-INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS
-########## END APPLICATON DEFINITION
-
 
 ROOT_URLCONF = '{{ cookiecutter.repo_name }}.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = '{{cookiecutter.repo_name}}.wsgi.application'
+WSGI_APPLICATION = '{{ cookiecutter.repo_name }}.wsgi.application'
 
 # A tuple that lists people who get code error notifications when DEBUG=False
 ADMINS = (
@@ -62,9 +39,7 @@ MANAGERS = ADMINS
 
 DATABASES = {'default': dj_database_url.config()}
 
-
-########## INTERNATIONALIZATION
-# https://docs.djangoproject.com/en/1.6/topics/i18n/
+# https://docs.djangoproject.com/en/stable/topics/i18n/
 LANGUAGE_CODE = '{{ cookiecutter.language_code }}'
 
 TIME_ZONE = 'Europe/Brussels'
@@ -74,12 +49,38 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-########## END INTERNATIONALIZATION
 
 STATIC_URL = os.getenv("DJANGO_STATIC_URL", '/static/')
 MEDIA_URL = os.getenv("DJANGO_MEDIA_URL", '/media/')
-STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", 'public/static')
-MEDIA_ROOT = os.getenv("DJANGO_MEDIA_ROOT", 'public/media')
+STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", 'static')
+MEDIA_ROOT = os.getenv("DJANGO_MEDIA_ROOT", 'media')
+
+DJANGO_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+)
+THIRD_PARTY_APPS = (
+    'debug_toolbar',
+    'django_extensions',
+    'djangobower',
+    # 'crispy_forms',
+)
+
+LOCAL_APPS = (
+    '{{ cookiecutter.repo_name }}',
+)
+
+INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS
+
+BOWER_INSTALLED_APPS = (
+    'bootstrap-sass#3.3.4',
+    'jquery#<2'
+    # 'underscore',
+)
 
 # E-mail:
 SERVER_EMAIL = 'webserver <webserver@myhost.com>'

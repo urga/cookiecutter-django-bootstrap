@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 
 from subprocess import call
+
 call(["mv", "dotgitignore", ".gitignore"])
+print("******* Installling node modules:")
 call(["npm", "install"])
-call(["bower", "install"])
-call(["grunt"])
-call(["git", "init"])
-call(["git", "add", "-A"])
-call(["git", "commit", "-m", "'Initial commit'"])
+print("******* Node modules installed.")
+print("******* Installing python dependancies:")
+call(["pip", "install", "-r", "requirements/local.txt"])
+print("******* Python depedancies installed.")
+call(["./manage.py", "bower", "install"])
